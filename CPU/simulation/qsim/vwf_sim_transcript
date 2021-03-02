@@ -1,0 +1,337 @@
+Determining the location of the ModelSim executable...
+
+Using: C:\intelFPGA_lite\18.1\modelsim_ase\win32aloem
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off CPU -c CPU --vector_source="C:/CPU/Waveform3.vwf" --testbench_file="C:/CPU/simulation/qsim/Waveform3.vwf.vht"
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details.
+    Info: Processing started: Tue Dec 03 13:34:25 2019
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off CPU -c CPU --vector_source=C:/CPU/Waveform3.vwf --testbench_file=C:/CPU/simulation/qsim/Waveform3.vwf.vht
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+design
+
+Completed successfully. 
+
+**** Generating the functional simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/CPU/simulation/qsim/" CPU -c CPU
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details.
+    Info: Processing started: Tue Dec 03 13:34:27 2019
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/CPU/simulation/qsim/ CPU -c CPU
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file CPU.vho in folder "C:/CPU/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4654 megabytes
+    Info: Processing ended: Tue Dec 03 13:34:27 2019
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+C:/CPU/simulation/qsim/CPU.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vsim -c -do CPU.do
+
+Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+
+# 10.5b
+
+# do CPU.do
+
+# ** Warning: (vlib-34) Library already exists at "work".
+
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:34:28 on Dec 03,2019
+# vcom -work work CPU.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package fiftyfivenm_atom_pack
+# -- Loading package fiftyfivenm_components
+# -- Compiling entity hard_block
+# -- Compiling architecture structure of hard_block
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Compiling entity CPU
+# -- Compiling architecture structure of CPU
+# End time: 13:34:28 on Dec 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:34:28 on Dec 03,2019
+# vcom -work work Waveform3.vwf.vht 
+# -- Loading package STANDARD
+
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity CPU_vhd_vec_tst
+# -- Compiling architecture CPU_arch of CPU_vhd_vec_tst
+# End time: 13:34:29 on Dec 03,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+
+# vsim -novopt -c -t 1ps -L fiftyfivenm -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.CPU_vhd_vec_tst 
+# Start time: 13:34:29 on Dec 03,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_vhd_vec_tst(cpu_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading fiftyfivenm.fiftyfivenm_atom_pack(body)
+# Loading fiftyfivenm.fiftyfivenm_components
+# Loading work.cpu(structure)
+# Loading work.hard_block(structure)
+# Loading fiftyfivenm.fiftyfivenm_lcell_comb(vital_lcell_comb)
+# Loading fiftyfivenm.fiftyfivenm_io_obuf(behavior)
+# Loading fiftyfivenm.fiftyfivenm_io_ibuf(behavior)
+# Loading altera.dffeas(vital_dffeas)
+# Loading fiftyfivenm.fiftyfivenm_unvm(behavior)
+# Loading fiftyfivenm.fiftyfivenm_adcblock(behavior)
+# ** Warning: Design size of 35832 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+
+# after#35
+
+# End time: 13:34:30 on Dec 03,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1
+
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading C:/CPU/Waveform3.vwf...
+
+Reading C:/CPU/simulation/qsim/CPU.msim.vcd...
+
+Processing channel transitions... 
+
+Warning: regn:ir_reg|Q[8] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[7] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[6] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[5] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[4] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[3] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[2] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[1] - signal not found in VCD.
+
+Warning: regn:ir_reg|Q[0] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[8] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[7] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[6] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[5] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[4] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[3] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[2] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[1] - signal not found in VCD.
+
+Warning: regn:reg_0|Q[0] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[8] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[7] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[6] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[5] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[4] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[3] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[2] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[1] - signal not found in VCD.
+
+Warning: regn:reg_1|Q[0] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[8] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[7] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[6] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[5] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[4] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[3] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[2] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[1] - signal not found in VCD.
+
+Warning: regn:reg_A|Q[0] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[8] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[7] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[6] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[5] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[4] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[3] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[2] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[1] - signal not found in VCD.
+
+Warning: regn:reg_G|Q[0] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[8] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[7] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[6] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[5] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[4] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[3] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[2] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[1] - signal not found in VCD.
+
+Warning: mux:mux_define|Q[0] - signal not found in VCD.
+
+Warning: IRIN - signal not found in VCD.
+
+Warning: r_select[7] - signal not found in VCD.
+
+Warning: r_select[6] - signal not found in VCD.
+
+Warning: r_select[5] - signal not found in VCD.
+
+Warning: r_select[4] - signal not found in VCD.
+
+Warning: r_select[3] - signal not found in VCD.
+
+Warning: r_select[2] - signal not found in VCD.
+
+Warning: r_select[1] - signal not found in VCD.
+
+Warning: r_select[0] - signal not found in VCD.
+
+Warning: dec3to8:decX - signal not found in VCD.
+
+Warning: dec3to8:decY - signal not found in VCD.
+
+Warning: din_select - signal not found in VCD.
+
+Warning: I[2] - signal not found in VCD.
+
+Warning: I[1] - signal not found in VCD.
+
+Warning: I[0] - signal not found in VCD.
+
+Warning: R0[8] - signal not found in VCD.
+
+Warning: R0[7] - signal not found in VCD.
+
+Warning: R0[6] - signal not found in VCD.
+
+Warning: R0[5] - signal not found in VCD.
+
+Warning: R0[4] - signal not found in VCD.
+
+Warning: R0[3] - signal not found in VCD.
+
+Warning: R0[2] - signal not found in VCD.
+
+Warning: R0[1] - signal not found in VCD.
+
+Warning: R0[0] - signal not found in VCD.
+
+Warning: Ain - signal not found in VCD.
+
+Warning: Gin - signal not found in VCD.
+
+Warning: Rin[7] - signal not found in VCD.
+
+Warning: Rin[6] - signal not found in VCD.
+
+Warning: Rin[5] - signal not found in VCD.
+
+Warning: Rin[4] - signal not found in VCD.
+
+Warning: Rin[3] - signal not found in VCD.
+
+Warning: Rin[2] - signal not found in VCD.
+
+Warning: Rin[1] - signal not found in VCD.
+
+Warning: Rin[0] - signal not found in VCD.
+
+Writing the resulting VWF to C:/CPU/simulation/qsim/CPU_20191203133431.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.

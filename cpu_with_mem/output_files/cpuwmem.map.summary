@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Dec 05 12:19:01 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : cpuwmem
+Top-level Entity Name : cpuwmem
+Family : MAX 10
+Total logic elements : 212
+    Total combinational functions : 130
+    Dedicated logic registers : 108
+Total registers : 108
+Total pins : 14
+Total virtual pins : 0
+Total memory bits : 288
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

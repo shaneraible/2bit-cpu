@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Dec 05 12:19:10 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : cpuwmem
+Top-level Entity Name : cpuwmem
+Family : MAX 10
+Device : 10M50DAF484C6GES
+Timing Models : Preliminary
+Total logic elements : 163 / 49,760 ( < 1 % )
+    Total combinational functions : 131 / 49,760 ( < 1 % )
+    Dedicated logic registers : 108 / 49,760 ( < 1 % )
+Total registers : 108
+Total pins : 14 / 360 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 288 / 1,677,312 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )
